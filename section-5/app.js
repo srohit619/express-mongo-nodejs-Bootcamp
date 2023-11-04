@@ -5,8 +5,6 @@ const userRouter = require('./routes/userRouter');
 //Midlleware morgan
 const morgan = require('morgan');
 
-const port = 8000;
-
 //MIDDLEWARE
 app.use(express.json());
 app.use(morgan('dev'));
@@ -27,9 +25,5 @@ const myMiddleware = (req, res, next) => {
 // app.get('/api/v1/tours/:id', getTourById);
 // app.post('/api/v1/tours', addNewTour);
 
-//ROUTE
-
-//STARTING SERVER & LISTENING TO PORT
-app.listen(port, () => {
-  console.log(`server running on port ${port}`);
-});
+//STARTING SERVER & LISTENING TO PORT IS NOW EXPORTED TO SERVER.JS FILE
+module.exports = app;
