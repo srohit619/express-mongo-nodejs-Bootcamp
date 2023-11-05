@@ -1,7 +1,7 @@
 const fs = require('fs');
 const utility = require('../../utility/func');
 const config = utility.readConfig();
-console.log('config' + config);
+// console.log('config' + config);
 
 const tours = JSON.parse(fs.readFileSync('./dev-data/data/tours-simple.json'));
 

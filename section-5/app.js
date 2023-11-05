@@ -1,15 +1,23 @@
 const express = require('express');
-const tourRouter = require('./routes/tourRouter');
-const app = express();
-const userRouter = require('./routes/userRouter');
-//Midlleware morgan
 const morgan = require('morgan');
+
+const app = express();
+const tourRouter = require('./routes/tourRouter');
+const userRouter = require('./routes/userRouter');
+
+console.log('node_env->' + process.env.NODE_ENV);
+//Midlleware morgan
+if (process.env.NODE_ENV === 'development') {
+    app.use(morgan('dev'));
+}
+
+// console.log('process.env.NODE_ENV-->' + process.env.NODE_ENV);
 
 //MIDDLEWARE
 app.use(express.json());
-app.use(morgan('dev'));
+app.use(express.static(`${__dirname}/public`));
 
-
+console.log(process.env);
 
 //USING EXPRESS ROUTERS
 app.use('/api/v1/tours', tourRouter);
