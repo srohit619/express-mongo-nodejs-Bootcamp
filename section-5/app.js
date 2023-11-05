@@ -9,14 +9,16 @@ const morgan = require('morgan');
 app.use(express.json());
 app.use(morgan('dev'));
 
+
+
 //USING EXPRESS ROUTERS
 app.use('/api/v1/tours', tourRouter);
 app.use('/api/v1/users', userRouter);
 
 const myMiddleware = (req, res, next) => {
-  console.log('requestbody-->' + JSON.stringify(req.body));
-  console.log('Middleware ---> 01');
-  next();
+    console.log('requestbody-->' + JSON.stringify(req.body));
+    console.log('Middleware ---> 01');
+    next();
 };
 
 // app.use(myMiddleware);
