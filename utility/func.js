@@ -12,7 +12,7 @@ Description: Reads the dbconfig file.
 */
 
 function readConfig() {
-    const dbConfigPath = "../../config.json";
+    const dbConfigPath = "../config.json";
     const data = fs.readFileSync(dbConfigPath, "utf8");
     // console.log("dataa---" + data);
     return JSON.parse(data);
