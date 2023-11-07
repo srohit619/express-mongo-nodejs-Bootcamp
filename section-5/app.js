@@ -8,7 +8,7 @@ const userRouter = require('./routes/userRouter');
 console.log('node_env->' + process.env.NODE_ENV);
 //Midlleware morgan
 if (process.env.NODE_ENV === 'development') {
-    app.use(morgan('dev'));
+  app.use(morgan('dev'));
 }
 
 // console.log('process.env.NODE_ENV-->' + process.env.NODE_ENV);
@@ -17,16 +17,16 @@ if (process.env.NODE_ENV === 'development') {
 app.use(express.json());
 app.use(express.static(`${__dirname}/public`));
 
-console.log(process.env);
+// console.log(process.env);
 
 //USING EXPRESS ROUTERS
 app.use('/api/v1/tours', tourRouter);
 app.use('/api/v1/users', userRouter);
 
 const myMiddleware = (req, res, next) => {
-    console.log('requestbody-->' + JSON.stringify(req.body));
-    console.log('Middleware ---> 01');
-    next();
+  console.log('requestbody-->' + JSON.stringify(req.body));
+  console.log('Middleware ---> 01');
+  next();
 };
 
 // app.use(myMiddleware);
